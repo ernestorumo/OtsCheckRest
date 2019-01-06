@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/otscheck/app/Exceptions/Handler.php</file>
+            <file>file:/C:/xampp/htdocs/otscheck/storage/app/public/.gitignore</file>
+            <file>file:/C:/xampp/htdocs/otscheck/app/Http/Controllers/User/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/otscheck/storage/framework/cache/data/.gitignore</file>
+            <file>file:/C:/xampp/htdocs/otscheck/storage/framework/sessions/.gitignore</file>
+            <file>file:/C:/xampp/htdocs/otscheck/app/Http/Controllers/ApiController.php</file>
+            <file>file:/C:/xampp/htdocs/otscheck/storage/app/.gitignore</file>
+            <file>file:/C:/xampp/htdocs/otscheck/app/Traits/ApiResponser.php</file>
+            <file>file:/C:/xampp/htdocs/otscheck/storage/framework/views/.gitignore</file>
         </group>
     </open-files>
 </project-private>
