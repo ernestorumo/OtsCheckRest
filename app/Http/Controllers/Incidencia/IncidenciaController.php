@@ -17,7 +17,6 @@ class IncidenciaController extends ApiController
     public function index()
     {
         $incidencias = Incidencia::all();
-        
         return $this->showAll($incidencias);
     }
 
@@ -87,7 +86,7 @@ class IncidenciaController extends ApiController
             $incidencia->resolucion = $request->resolucion;
         }
         if (!$incidencia->isDirty()) {
-            $this->errorResponse('Se debe especificar al menos un valor diferente', 422);
+           return $this->errorResponse('Se debe especificar al menos un valor diferente', 422);
         }
         $incidencia->save();
         return $this->showOne($incidencia);

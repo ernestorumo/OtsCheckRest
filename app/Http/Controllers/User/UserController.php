@@ -5,29 +5,26 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\ApiController;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class UserController //extends ApiController
+class UserController extends ApiController
 {
-    use \App\Traits\ApiResponser;
     /**
      * Display a listing of the resource.
      *
-     * @return Collection User
-     */
+     * @return Response
+     */ 
     public function index()
     {
-        $users = User::all();
-        
-        //return response()->json($users, 200);
-        
-        $this->showAll($users);
+        $users = User::all();          
+        return $this->showAll($users);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
-     * @return User
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -47,18 +44,18 @@ class UserController //extends ApiController
         
         $user = User::create($campos);
         
-        $this->showOne($user);
+        return $this->showOne($user);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  User $user
-     * @return User
+     * @return Response
      */
     public function show(User $user)
     {
-        $this->showOne($user);
+        return $this->showOne($user);
     }
 
     /**
@@ -66,7 +63,7 @@ class UserController //extends ApiController
      *
      * @param  Request  $request
      * @param  User $user
-     * @return User
+     * @return Response
      */
     public function update(Request $request, User $user)
     {        
@@ -74,10 +71,11 @@ class UserController //extends ApiController
             //Solo valida el email exceptuando el del usuario actual
             'email' =>'email|unique:users,email,'. $user->id,
             'password'=> 'min:6|confirmed'
-        ];
+        ];     
         
         $this->validate($request, $rules);
        
+        
         if($request->has('name')){
            $user->name = $request->name;
         }
@@ -91,11 +89,11 @@ class UserController //extends ApiController
         }
         
         if(!$user->isDirty()){
-            $this->errorResponse('Se debe especificar al menos un valor diferente',422);
-        }
+            return $this->errorResponse('Se debe especificar al menos un valor diferente',422);
+        }        
         $user->save();
         
-        $this->showOne($user);
+        return $this->showOne($user);
     }
 
     /**
@@ -108,6 +106,6 @@ class UserController //extends ApiController
     {                
         $user->delete();
         
-        $this->showOne($user);
+        return $this->showOne($user);
     }
 }

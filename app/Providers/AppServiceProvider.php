@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //Compatibilidad para versiones anteriores de MySql y MariaDb
-        //Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
     }
 
     /**

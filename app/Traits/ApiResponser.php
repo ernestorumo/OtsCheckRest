@@ -24,6 +24,7 @@ trait ApiResponser
     
     protected function showOne(Model $instance, $code = 200)
     {
+        
         return $this->successResponse(['data'=> $instance],$code);
     }
     
